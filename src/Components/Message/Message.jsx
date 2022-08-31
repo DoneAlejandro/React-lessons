@@ -19,11 +19,12 @@ export const Message = () => {
   };
 
   useEffect(() => {
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       if (messagesList.length > 0) {
         alert("Сообщение доставлено!");
       }
     }, 1500);
+    return () => clearInterval(timeout);
   }, [messagesList]);
 
   const messages = messagesList.map((message, index) => {
@@ -53,7 +54,11 @@ export const Message = () => {
           placeholder="Введите сообщение"
           onChange={(e) => setText(e.target.value)}
         />
-        <button className={style.btn} onClick={addMessage}>
+        <button
+          className={style.btn}
+          onClick={addMessage}
+          disabled={!author || !text}
+        >
           Отправить сообщение
         </button>
       </div>
