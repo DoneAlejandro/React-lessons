@@ -1,70 +1,54 @@
 import React from "react";
-import style from "./Message.module.css";
 import { useState, useEffect } from "react";
+import style from "./Message.module.css";
+// import { MessagesList } from "../MessagesList/MessagesList";
+import { FormMessage } from "../FormMessage/FormMessage";
 
 // Функциональный компонент
 
 export const Message = () => {
+  const [countMessage, setCountMessage] = useState(0);
   const [author, setAuthor] = useState("");
   const [text, setText] = useState("");
-  const [messagesList, setMessagesList] = useState([]);
-  const [countMessage, setCountMessage] = useState(0);
+  const [messages, setMessages] = useState([]);
 
   const addMessage = () => {
     let messageItem = { author: author, message: text };
-    setMessagesList([...messagesList, messageItem]);
+    setMessages([...messages, messageItem]);
     setCountMessage(countMessage + 1);
     setAuthor("");
     setText("");
   };
+//   useEffect(() => {
+//     const timeout = setTimeout(() => {
+//       if (messages.length > 0) {
+//         alert("Сообщение доставлено!");
+//       }
+//     }, 1500);
+//     return () => clearInterval(timeout);
+//   }, [messages]);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (messagesList.length > 0) {
-        alert("Сообщение доставлено!");
-      }
-    }, 1500);
-    return () => clearInterval(timeout);
-  }, [messagesList]);
+  const onChangeHandlerAuthorValue = (e) => {
+    setAuthor(e.target.value);
+  };
+  const onChangeHandlerTextValue = (e) => {
+    setText(e.target.value);
+  };
 
-  const messages = messagesList.map((message, index) => {
-    return (
-      <li key={index}>
-        Cообщение от: {message.author} <br />
-        Текст сообщения: {message.message}
-      </li>
-    );
-  });
   return (
     <>
-      {/* Можно было вывести в отдельную компоненту, но я не успеваю, позже исправлю */}
       <div className={style.title}>
         <h3>Всего сообщений: {countMessage}</h3>
       </div>
-      <div className={style.formMessage}>
-        <input
-          className={style.input}
-          value={author}
-          placeholder="Введите имя"
-          onChange={(e) => setAuthor(e.target.value)}
-        />
-        <input
-          className={style.input}
-          value={text}
-          placeholder="Введите сообщение"
-          onChange={(e) => setText(e.target.value)}
-        />
-        <button
-          className={style.btn}
-          onClick={addMessage}
-          disabled={!author || !text}
-        >
-          Отправить сообщение
-        </button>
-      </div>
-      <div>
-        <ul>{messages}</ul>
-      </div>
+      <FormMessage
+        addMessage={addMessage}
+        messages={messages}
+        author={author}
+        text={text}
+        onChangeHandlerAuthorValue={onChangeHandlerAuthorValue}
+        onChangeHandlerTextValue={onChangeHandlerTextValue}
+      />
+      {/* <MessagesList messages={messages} /> */}
     </>
   );
 };
