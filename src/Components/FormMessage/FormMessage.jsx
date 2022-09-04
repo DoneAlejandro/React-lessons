@@ -1,42 +1,43 @@
 import React from "react";
-import { MessagesList } from "../MessagesList/MessagesList";
+import { useState } from "react";
 import style from "./FormMessage.module.css";
 
 // Функциональный компонент
 
-export const FormMessage = ({
-  addMessage,
-  messages,
-  author,
-  text,
-  onChangeHandlerAuthorValue,
-  onChangeHandlerTextValue,
-}) => {
-//   debugger;
+export const FormMessage = ({ addMessage }) => {
+  const [author, setAuthor] = useState("");
+  const [text, setText] = useState("");
+
+  const handlerSubmit = (ev) => {
+    ev.preventDefault();
+    let messageItem = { author: author, message: text };
+    addMessage(messageItem);
+    setAuthor("");
+    setText("");
+  };
   return (
-    <div className={style.wrapper}>
-      <form className={style.formMessage}>
+    <div>
+      <form className={style.formMessage} onSubmit={handlerSubmit}>
         <input
           className={style.input}
-          value={author.author}
+          value={author}
           placeholder="Введите имя"
-          onChange={onChangeHandlerAuthorValue}
+          onChange={(e) => setAuthor(e.target.value)}
         />
         <input
           className={style.input}
-          value={text.text}
+          value={text}
           placeholder="Введите сообщение"
-          onChange={onChangeHandlerTextValue}
+          onChange={(e) => setText(e.target.value)}
         />
         <button
           className={style.btn}
           onClick={addMessage}
-          //   disabled={!author.author || !text.text}
+          disabled={!author || !text}
         >
           Отправить сообщение
         </button>
       </form>
-      <MessagesList messages={messages} />
     </div>
   );
 };
