@@ -32,7 +32,7 @@ export const FormMessage = ({ addMessage }) => {
         />
         <button
           className={style.btn}
-          onClick={addMessage}
+          onClick={() => addMessage}
           disabled={!author || !text}
         >
           Отправить сообщение
