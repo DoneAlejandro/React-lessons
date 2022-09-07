@@ -1,10 +1,10 @@
 import "./App.css";
-import { FormMessage } from "./Components/FormMessage/FormMessage";
+import { Message } from "./components/Message";
 
 export function App() {
   return (
     <div className="App">
-      <FormMessage />
+      <Message />
     </div>
   );
 }
