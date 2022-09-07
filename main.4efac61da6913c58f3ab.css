@@ -66,37 +66,9 @@
   background-color: aliceblue;
 }
 /*!****************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/Components/Message/Message.module.css ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/components/Message/Message.module.css ***!
   \****************************************************************************************************************************************************************/
-.Message-module___sHfMT {
-  margin-bottom: 20px;
-}
-
-.Message-module___wQlzI {
-  margin-bottom: 20px;
-  background-color: bisque;
-  padding: 15px;
-  border-radius: 10px;
-}
-
-.Message-module___plClA {
-  padding: 20px;
-  border-radius: 10px;
-  margin-right: 10px;
-}
-
-.Message-module___AXsn5 {
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.Message-module___AXsn5:active {
-  background-color: green;
-}
-/*!************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/Components/FormMessage/FormMessage.module.css ***!
-  \************************************************************************************************************************************************************************/
-.FormMessage-module___wEY9N {
+.Message-module___biOcP {
   min-width: 100vh;
   min-height: 100vh;
   background-color: aliceblue;
@@ -104,4 +76,32 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.Message-module___f_Tob {
+  margin-bottom: 20px;
+}
+/*!************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/components/FormMessage/FormMessage.module.css ***!
+  \************************************************************************************************************************************************************************/
+.FormMessage-module___lDZwv {
+  margin-bottom: 20px;
+  background-color: bisque;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.FormMessage-module___EMoEP {
+  padding: 20px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.FormMessage-module___wTA29 {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.FormMessage-module___wTA29:active {
+  background-color: green;
 }
