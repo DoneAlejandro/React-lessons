@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import style from "./Message.module.css";
-import { MessagesList } from "../MessagesList/MessagesList";
-import { FormMessage } from "../FormMessage/FormMessage";
+import { MessagesList } from "../MessagesList";
+import { FormMessage } from "../FormMessage";
 
 // Функциональный компонент
 

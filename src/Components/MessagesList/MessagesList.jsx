@@ -1,6 +1,6 @@
 import React from "react";
 
-export const MessagesList = ({ messages }) => {
+export const MessagesList = ({ messages = ["sda", "asdas"] }) => {
   return (
     <ul>
       {messages.map((message, index) => (
