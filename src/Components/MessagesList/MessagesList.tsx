@@ -1,6 +1,11 @@
-import React from "react";
+import React, { FC } from "react";
+import { Messages } from "src/types";
 
-export const MessagesList = ({ messages = ["sda", "asdas"] }) => {
+interface MessageProps {
+  messages: Messages;
+}
+
+export const MessagesList: FC<MessageProps> = ({ messages }) => {
   return (
     <ul>
       {messages.map((message, index) => (

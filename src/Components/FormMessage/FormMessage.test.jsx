@@ -1,23 +1,23 @@
 import { FormMessage } from "./FormMessage";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import userEvent from "@testing-library/user-event";
-
-const onChange = jest.fn();
-
 describe("FormMessage", () => {
   it("render form", () => {
-    render(<FormMessage />);
+    const addMessage = jest.fn();
+    render(<FormMessage addMessage={addMessage} />);
   });
 
   it("button in component", () => {
     render(<FormMessage />);
-    expect(screen.getByRole("button")).toBeInTheDocument;
+    expect(screen.getByRole("button")).toBeInTheDocument();
   });
 
   it("onChange in input author", () => {
-    render(<FormMessage onChange={onChange} />);
-    userEvent.type(screen.getAllByRole("textbox"), "hello");
-    expect(onChange).toHaveBeenCalled;
+    const addMessage = jest.fn();
+    render(<FormMessage addMessage={addMessage} />);
+
+    const input = screen.getByTestId < HTMLInputElement > "input";
+    fireEvent.change(input, { target: { value: "new value" } });
+    expect(input.value).toBe("new value");
   });
 });

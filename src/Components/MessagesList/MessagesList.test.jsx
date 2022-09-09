@@ -4,14 +4,12 @@ import { MessagesList } from "./MessagesList";
 
 describe("Messages list component", () => {
   it("Messages list render", () => {
-    render(<MessagesList />);
-
-    expect(screen.getByRole("list")).toBeInTheDocument;
+    render(<MessagesList messages={[]} />);
   });
 
   it("List render without message", () => {
-    render(<MessagesList />);
+    render(<MessagesList messages={[]} />);
 
-    expect(screen.queryByRole("list")).toBeInTheDocument;
+    expect(screen.queryAllByRole < HTMLLIElement > "li".length).toBe(0);
   });
 });

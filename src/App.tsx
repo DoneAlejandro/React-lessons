@@ -1,10 +1,10 @@
 import "./App.css";
-import { Message } from "./components/Message";
+import { MessageWrapper } from "./components/MessageWrapper";
 
 export function App() {
   return (
     <div className="App">
-      <Message />
+      <MessageWrapper />
     </div>
   );
 }
