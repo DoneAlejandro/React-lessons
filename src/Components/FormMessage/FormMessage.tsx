@@ -27,7 +27,7 @@ export const FormMessage: FC<FormMessageProps> = ({ addMessage }) => {
       <form className={style.formMessage} onSubmit={handlerSubmit}>
         <TextField
           label="Name"
-          autoFocus={true}
+          inputRef={(input) => input?.focus()}
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
         />

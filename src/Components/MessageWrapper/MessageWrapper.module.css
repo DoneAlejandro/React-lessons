@@ -1,14 +1,22 @@
 .wrapper {
-	min-width: 100vh;
-	min-height: 100vh;
-	background-color: aliceblue;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+  min-width: 100vh;
+  min-height: 100vh;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .title {
-	margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
+.lightMode {
+  background-color: white;
+  color: #282c34;
+}
 
+.darkMode {
+  background-color: #282c34;
+  color: white;
+}
