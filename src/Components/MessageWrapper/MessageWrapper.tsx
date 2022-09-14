@@ -1,18 +1,15 @@
 import React, { FC } from "react";
 import { useState, useEffect } from "react";
 import style from "./MessageWrapper.module.css";
-import { MessagesList } from "../MessagesList";
-import { FormMessage } from "../FormMessage";
+import { MessagesList } from "./MessagesList";
+import { FormMessage } from "./FormMessage";
 import { Message, Messages } from "src/types";
-import { ThemeContext } from "../ToggleTheme/ThemeContext";
-import { ToggleTheme } from "../ToggleTheme";
 
 // Функциональный компонент
 
 export const MessageWrapper: FC = () => {
   const [countMessage, setCountMessage] = useState(0);
   const [messages, setMessages] = useState<Messages>([]);
-  const [mode, setMode] = useState<"light" | "dark">("light");
 
   //   Добавление сообщения
   const addMessage = (newMessage: Message) => {
@@ -30,23 +27,13 @@ export const MessageWrapper: FC = () => {
     return () => clearInterval(timeout);
   }, [messages]);
 
-  //   Тема
-  const toggleColorMode = () => {
-    setMode(mode === "light" ? "dark" : "light");
-  };
-
   return (
-    <ThemeContext.Provider value={{ mode, toggleColorMode }}>
-      <div className={mode ? style.lightMode : style.darkMode}>
-        <div className={style.wrapper}>
-          <ToggleTheme />
-          <div className={style.title}>
-            <h3>Всего сообщений: {countMessage}</h3>
-          </div>
-          <FormMessage addMessage={addMessage} />
-          <MessagesList messages={messages} />
-        </div>
+    <div>
+      <div className={style.title}>
+        <h3>Всего сообщений: {countMessage}</h3>
       </div>
-    </ThemeContext.Provider>
+      <FormMessage addMessage={addMessage} />
+      <MessagesList messages={messages} />
+    </div>
   );
 };

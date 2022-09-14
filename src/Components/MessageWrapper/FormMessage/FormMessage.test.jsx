@@ -12,12 +12,12 @@ describe("FormMessage", () => {
     expect(screen.getByRole("button")).toBeInTheDocument();
   });
 
-//   it("onChange in input author", () => {
-//     const addMessage = jest.fn();
-//     render(<FormMessage addMessage={addMessage} />);
+  //   it("onChange in input author", () => {
+  //     const addMessage = jest.fn();
+  //     render(<FormMessage addMessage={addMessage} />);
 
-//     const input = screen.getByTestId < HTMLInputElement > "input";
-//     fireEvent.change(input, { target: { value: "new value" } });
-//     expect(input.value).toBe("new value");
-//   });
+  //     const input = screen.getByTestId < HTMLInputElement > "input";
+  //     fireEvent.change(input, { target: { value: "new value" } });
+  //     expect(input.value).toBe("new value");
+  //   });
 });

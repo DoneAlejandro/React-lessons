@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useCallback } from "react";
 import { useState } from "react";
 import style from "./FormMessage.module.css";
 import { TextField, Button } from "@mui/material";
@@ -21,13 +21,24 @@ export const FormMessage: FC<FormMessageProps> = ({ addMessage }) => {
     setAuthor("");
     setText("");
   };
+  // запутался я уже с этим рефом
+  // если использовать useCallback, то автофокус работает только при первом рендере
+  // после отправки формы фокус не работате
+  // если использовать закомментированную конструкцию, афтофокус работает
+  // но с такой конструкцией не даёт вводить во 2 инпут более одного символа
+  const callbackRef = useCallback((inputElement: { focus: () => void }) => {
+    if (inputElement) {
+      inputElement.focus();
+    }
+  }, []);
 
   return (
     <div>
       <form className={style.formMessage} onSubmit={handlerSubmit}>
         <TextField
           label="Name"
-          inputRef={(input) => input?.focus()}
+          inputRef={callbackRef}
+          //   inputRef={(input) => input?.focus()}
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
         />
