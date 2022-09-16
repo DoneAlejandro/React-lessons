@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from "react";
-import { Box, Button, useTheme } from "@mui/material";
+import { Button, useTheme } from "@mui/material";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { MessageWrapper } from "../../MessageWrapper";
@@ -25,11 +25,7 @@ export const ToggleColorButton = () => {
       <ChatListWrapper />
       <div className={style.box}>
         <MessageWrapper />
-        <Button
-          data-testid="button"
-          variant="contained"
-          onClick={colorMode.toggleColorMode}
-        >
+        <Button variant="contained" onClick={colorMode.toggleColorMode}>
           {theme.palette.mode === "dark" ? "светлая тема" : "тёмная тема"}
           {theme.palette.mode === "dark" ? (
             <Brightness7Icon />

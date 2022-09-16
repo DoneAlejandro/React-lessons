@@ -10,7 +10,9 @@ export const ChatList: FC<ChatProps> = ({ chats }) => {
   return (
     <List>
       {chats.map((chatItem) => (
-        <ListItem key={chatItem.id}>{chatItem.name}</ListItem>
+        <ListItem key={chatItem.id} data-testid="list">
+          {chatItem.name}
+        </ListItem>
       ))}
     </List>
   );

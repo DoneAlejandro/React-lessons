@@ -2,7 +2,7 @@ import React, { FC, useCallback } from "react";
 import { useState } from "react";
 import style from "./FormMessage.module.css";
 import { TextField, Button } from "@mui/material";
-import { Message } from "src/types";
+import { AUTHOR, Message } from "src/types";
 
 // Функциональный компонент
 
@@ -16,7 +16,11 @@ export const FormMessage: FC<FormMessageProps> = ({ addMessage }) => {
 
   const handlerSubmit = (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
-    const messageItem = { author: author, message: text };
+    const messageItem = {
+      author: author,
+      message: text,
+      customers: AUTHOR.USER,
+    };
     addMessage(messageItem);
     setAuthor("");
     setText("");
@@ -41,6 +45,7 @@ export const FormMessage: FC<FormMessageProps> = ({ addMessage }) => {
           //   inputRef={(input) => input?.focus()}
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
+          inputProps={{ "data-testid": "inputName" }}
         />
 
         <TextField
@@ -48,12 +53,14 @@ export const FormMessage: FC<FormMessageProps> = ({ addMessage }) => {
           value={text}
           placeholder="Введите сообщение"
           onChange={(e) => setText(e.target.value)}
+          inputProps={{ "data-testid": "inputMessage" }}
         />
         <Button
           type="submit"
           variant="contained"
           color="success"
           disabled={!author || !text}
+          data-testid="button"
         >
           Отправить сообщение
         </Button>
