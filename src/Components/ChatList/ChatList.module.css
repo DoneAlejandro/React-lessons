@@ -1,0 +1,9 @@
+.form {
+  display: flex;
+}
+.input {
+  padding: 20px;
+}
+.btn {
+  padding: 11px;
+}

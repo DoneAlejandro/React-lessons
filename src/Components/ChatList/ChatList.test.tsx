@@ -4,9 +4,11 @@ import "@testing-library/jest-dom/extend-expect";
 
 describe("ChatList", () => {
   it("expect render chats", () => {
-    render(<ChatList chats={[]} />);
+    const addChat = jest.fn();
+    render(<ChatList chats={[]} addChat={addChat} />);
   });
   it("the chat list contains 3 chats", () => {
+    const addChat = jest.fn();
     const chats = [
       {
         id: "1",
@@ -21,7 +23,7 @@ describe("ChatList", () => {
         name: "Чат 3",
       },
     ];
-    render(<ChatList chats={chats} />);
+    render(<ChatList chats={chats} addChat={addChat} />);
     expect(screen.getAllByTestId("list").length).toBe(3);
   });
 });
