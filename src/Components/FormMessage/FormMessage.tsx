@@ -3,16 +3,18 @@ import { useState } from "react";
 import style from "./FormMessage.module.css";
 import { TextField, Button } from "@mui/material";
 import { AUTHOR, Message } from "src/types";
+import { useParams } from "react-router-dom";
 
 // Функциональный компонент
 
 interface FormMessageProps {
-  addMessage: (newMessage: Message) => void;
+  addMessage: (chatId: string, msg: Message) => void;
 }
 
 export const FormMessage: FC<FormMessageProps> = ({ addMessage }) => {
   const [author, setAuthor] = useState("");
   const [text, setText] = useState("");
+  const { chatId } = useParams();
 
   const handlerSubmit = (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
@@ -21,9 +23,11 @@ export const FormMessage: FC<FormMessageProps> = ({ addMessage }) => {
       message: text,
       customers: AUTHOR.USER,
     };
-    addMessage(messageItem);
-    setAuthor("");
-    setText("");
+    if (chatId) {
+      addMessage(chatId, messageItem);
+      setAuthor("");
+      setText("");
+    }
   };
   // запутался я уже с этим рефом
   // если использовать useCallback, то автофокус работает только при первом рендере

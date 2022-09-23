@@ -7,3 +7,10 @@
 .btn {
   padding: 11px;
 }
+.active {
+  color: red;
+}
+
+.notActive {
+  color: blue;
+}

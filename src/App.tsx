@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import { ChatList } from "./components/ChatList";
 import { Header } from "./components/Header";
-// import { ChatPage } from "./components/pages/ChatPage";
+import { ChatPage } from "./components/pages/ChatPage";
 import { MainPage } from "./components/pages/MainPage";
 import { ProfilePage } from "./components/pages/ProfilePage";
 import { AUTHOR, Chat, Message, Messages } from "./types";
@@ -43,10 +43,17 @@ export function App() {
         <Route path="profile" element={<ProfilePage />} />
         <Route path="chats">
           <Route index element={<ChatList chats={chats} addChat={addChat} />} />
-          {/* <Route
+          <Route
             path=":chatId"
-            element={<ChatPage chats={chats} addChat={addChat} />}
-          /> */}
+            element={
+              <ChatPage
+                chats={chats}
+                addChat={addChat}
+                messages={messages}
+                addMessage={addMessage}
+              />
+            }
+          />
         </Route>
       </Route>
     </Routes>

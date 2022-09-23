@@ -1,8 +1,9 @@
 import React, { FC, useState } from "react";
 import { Chat } from "src/types";
-import { List, ListItem } from "@mui/material";
+import { ListItem } from "@mui/material";
 import { nanoid } from "nanoid";
 import style from "./ChatList.module.css";
+import { NavLink } from "react-router-dom";
 
 interface ChatListProps {
   chats: Chat[];
@@ -24,14 +25,21 @@ export const ChatList: FC<ChatListProps> = ({ chats, addChat }) => {
   };
 
   return (
-    <div>
-      <List>
+    <>
+      <ul>
         {chats.map((chatItem) => (
           <ListItem key={chatItem.id} data-testid="list">
-            {chatItem.name}
+            <NavLink
+              to={`/chats/${chatItem.id}`}
+              className={({ isActive }) =>
+                isActive ? style.active : style.notActive
+              }
+            >
+              {chatItem.name}
+            </NavLink>
           </ListItem>
         ))}
-      </List>
+      </ul>
       <form onSubmit={handleSubmit} className={style.form}>
         <input
           value={value}
@@ -40,7 +48,7 @@ export const ChatList: FC<ChatListProps> = ({ chats, addChat }) => {
         />
         <button className={style.btn}>Создать чат</button>
       </form>
-    </div>
+    </>
   );
 };
 // import React, { FC, useState } from "react";
