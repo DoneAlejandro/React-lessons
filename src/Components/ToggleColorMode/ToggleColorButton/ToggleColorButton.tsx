@@ -2,7 +2,6 @@ import React, { createContext, useContext } from "react";
 import { Button, useTheme } from "@mui/material";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-import { MessageWrapper } from "../../MessageWrapper";
 import style from "./ToggleColorButton.module.css";
 
 // ИЗМЕНЕНИЕ ТЕМЫ

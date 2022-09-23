@@ -5,7 +5,7 @@ export interface Message {
 }
 
 export interface Chat {
-  id: string | number;
+  id: string;
   name: string;
 }
 
@@ -14,5 +14,5 @@ export enum AUTHOR {
   BOT = "BOT время отправки",
 }
 
-export type Messages = Message[];
+export type Messages = Record<string, Message[]>;
 export type Chats = Chat[];

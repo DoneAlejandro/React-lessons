@@ -1,24 +1,26 @@
 import React, { FC, useState } from "react";
-import { Chats } from "src/types";
+import { Chat } from "src/types";
 import { List, ListItem } from "@mui/material";
 import { nanoid } from "nanoid";
 import style from "./ChatList.module.css";
 
 interface ChatListProps {
-  chats: Chats;
-  addChat: (newChat: Chats) => void;
+  chats: Chat[];
+  addChat: (chat: Chat) => void;
 }
 
-export const ChatList: FC<ChatListProps> = ({ chats }) => {
+export const ChatList: FC<ChatListProps> = ({ chats, addChat }) => {
   const [value, setValue] = useState("");
 
   const handleSubmit = (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
-    addChat({
-      id: nanoid(),
-      name: value,
-    });
-    setValue("");
+    if (value) {
+      addChat({
+        id: nanoid(),
+        name: value,
+      });
+      setValue("");
+    }
   };
 
   return (
