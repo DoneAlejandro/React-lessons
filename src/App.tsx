@@ -4,8 +4,8 @@ import "./App.css";
 import { ChatList } from "./components/ChatList";
 import { Header } from "./components/Header";
 import { ChatPage } from "./components/pages/ChatPage";
-import { MainPage } from "./components/pages/MainPage";
 import { ProfilePage } from "./components/pages/ProfilePage";
+import { ToggleColorMode } from "./components/ToggleColorMode";
 import { AUTHOR, Chat, Message, Messages } from "./types";
 
 const defaultChats: Chat[] = [
@@ -39,7 +39,7 @@ export function App() {
   return (
     <Routes>
       <Route path="/" element={<Header />}>
-        <Route index element={<MainPage />} />
+        <Route index element={<ToggleColorMode />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="chats">
           <Route index element={<ChatList chats={chats} addChat={addChat} />} />
@@ -56,6 +56,7 @@ export function App() {
           />
         </Route>
       </Route>
+      <Route path="*" element={<div>404 Not Found</div>} />
     </Routes>
   );
 }

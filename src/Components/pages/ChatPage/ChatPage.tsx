@@ -4,6 +4,7 @@ import { ChatList } from "src/components/ChatList";
 import { FormMessage } from "src/components/FormMessage";
 import { MessagesList } from "src/components/MessagesList";
 import { AUTHOR, Chat, Message, Messages } from "src/types";
+import style from "./ChatPage.module.css";
 
 interface ChatPageProps {
   chats: Chat[];
@@ -40,7 +41,7 @@ export const ChatPage: FC<ChatPageProps> = ({
   }
 
   return (
-    <div>
+    <div className={style.wrapper}>
       <ChatList chats={chats} addChat={addChat} />
       <MessagesList messages={chatId ? messages[chatId] : []} />
       <FormMessage addMessage={addMessage} />

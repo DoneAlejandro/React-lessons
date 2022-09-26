@@ -19,6 +19,7 @@ export const ToggleColorButton = () => {
       className={
         theme.palette.mode === "light" ? style.wrapperLight : style.wrapperDark
       }
+      data-testid="button"
     >
       <div className={style.box}>
         <Button variant="contained" onClick={colorMode.toggleColorMode}>

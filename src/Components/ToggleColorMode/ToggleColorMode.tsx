@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { colorModeContext, ToggleColorButton } from "./ToggleColorButton";
+import { MainPage } from "../pages/MainPage";
 
 export function ToggleColorMode() {
   const [mode, setMode] = useState<"light" | "dark">("light");
@@ -25,6 +26,7 @@ export function ToggleColorMode() {
   return (
     <colorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
+        <MainPage />
         <ToggleColorButton />
       </ThemeProvider>
     </colorModeContext.Provider>
