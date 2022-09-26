@@ -1,0 +1,159 @@
+/*!***************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./src/general style/normalize.css ***!
+  \***************************************************************************************************************/
+* {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	outline: none;
+	font-family: 'Proxima Nova', Roboto, system-ui, Tahoma, sans-serif;
+	box-sizing: border-box;
+  }
+  
+  html {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+  }
+  
+  body {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	color: black;
+  }
+  
+  a,
+  span,
+  p,
+  b,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+	color: black;
+  }
+  
+  h1 {
+	font-size: 48px;
+  }
+  
+  h2 {
+	font-weight: 600;
+	font-size: 28px;
+	line-height: 30px;
+  }
+  
+  a {
+	text-decoration: none;
+  }
+  
+  @mixin noselect {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+									supported by Chrome, Opera and Firefox */
+  }
+  
+/*!**********************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/App.css ***!
+  \**********************************************************************************************************************************/
+.App {
+  width: 100%;
+  height: 100%;
+  background-color: aliceblue;
+}
+/*!******************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/components/ChatList/ChatList.module.css ***!
+  \******************************************************************************************************************************************************************/
+.ChatList-module___Jio3c {
+  display: flex;
+  flex-direction: column;
+  max-width: 320px;
+}
+
+.ChatList-module___AgMGf {
+  padding: 20px;
+}
+
+.ChatList-module___on8BL {
+  padding: 11px;
+}
+
+.ChatList-module___JeNHO {
+  color: red;
+}
+
+.ChatList-module___FF1GD {
+  color: blue;
+}
+/*!**************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/components/Header/Header.module.css ***!
+  \**************************************************************************************************************************************************************/
+.Header-module___GVpdr {
+  color: red;
+}
+
+.Header-module___RtvWX {
+  color: blue;
+}
+/*!************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/components/FormMessage/FormMessage.module.css ***!
+  \************************************************************************************************************************************************************************/
+.FormMessage-module___lDZwv {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  background-color: bisque;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.FormMessage-module___EMoEP {
+  margin-right: 10px;
+}
+
+.FormMessage-module___wTA29 {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.FormMessage-module___wTA29:active {
+  background-color: green;
+}
+/*!************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/components/pages/ChatPage/ChatPage.module.css ***!
+  \************************************************************************************************************************************************************************/
+.ChatPage-module___tieFj {
+  display: flex;
+  justify-content: space-around;
+}
+/*!****************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/components/ToggleColorMode/ToggleColorButton/ToggleColorButton.module.css ***!
+  \****************************************************************************************************************************************************************************************************/
+.ToggleColorButton-module___AKyuC {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(238, 225, 225);
+  color: black;
+}
+
+.ToggleColorButton-module___TY8cL {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: rgb(238, 225, 225);
+}
+
+.ToggleColorButton-module___agUzS {
+  display: flex;
+  flex-direction: column-reverse;
+}
