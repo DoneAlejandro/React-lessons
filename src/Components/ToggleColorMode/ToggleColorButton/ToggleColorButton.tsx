@@ -2,9 +2,7 @@ import React, { createContext, useContext } from "react";
 import { Button, useTheme } from "@mui/material";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-import { MessageWrapper } from "../../MessageWrapper";
 import style from "./ToggleColorButton.module.css";
-import { ChatListWrapper } from "../../ChatListWrapper";
 
 // ИЗМЕНЕНИЕ ТЕМЫ
 // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -21,10 +19,9 @@ export const ToggleColorButton = () => {
       className={
         theme.palette.mode === "light" ? style.wrapperLight : style.wrapperDark
       }
+      data-testid="button"
     >
-      <ChatListWrapper />
       <div className={style.box}>
-        <MessageWrapper />
         <Button variant="contained" onClick={colorMode.toggleColorMode}>
           {theme.palette.mode === "dark" ? "светлая тема" : "тёмная тема"}
           {theme.palette.mode === "dark" ? (

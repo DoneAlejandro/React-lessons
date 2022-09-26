@@ -1,12 +1,22 @@
 import { ChatList } from "./ChatList";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
+import { BrowserRouter } from "react-router-dom";
+
+jest.mock("nanoid", () => {
+  return { nanoid: () => "1234" };
+});
 
 describe("ChatList", () => {
+  afterAll(() => {
+    jest.resetAllMocks();
+  });
   it("expect render chats", () => {
-    render(<ChatList chats={[]} />);
+    const addChat = jest.fn();
+    render(<ChatList chats={[]} addChat={addChat} />);
   });
   it("the chat list contains 3 chats", () => {
+    const addChat = jest.fn();
     const chats = [
       {
         id: "1",
@@ -21,7 +31,11 @@ describe("ChatList", () => {
         name: "Чат 3",
       },
     ];
-    render(<ChatList chats={chats} />);
+    render(
+      <BrowserRouter>
+        <ChatList chats={chats} addChat={addChat} />
+      </BrowserRouter>
+    );
     expect(screen.getAllByTestId("list").length).toBe(3);
   });
 });

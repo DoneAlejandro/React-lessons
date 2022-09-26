@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-import { Messages } from "src/types";
+import { Message } from "src/types";
 
 interface MessageProps {
-  messages: Messages;
+  messages: Message[];
 }
 
 export const MessagesList: FC<MessageProps> = ({ messages }) => {
