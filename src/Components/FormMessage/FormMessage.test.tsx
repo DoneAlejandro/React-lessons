@@ -30,4 +30,3 @@ describe("FormMessage", () => {
     expect(input.value).toBe("new value");
   });
 });
-
