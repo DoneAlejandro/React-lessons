@@ -23,7 +23,7 @@ describe("App", () => {
         <App />
       </MemoryRouter>
     );
-    expect(screen.getByText("ProfilePage")).toBeInTheDocument();
+    expect(screen.getByText("Profile page")).toBeInTheDocument();
   });
 
   it("MainPage url", () => {

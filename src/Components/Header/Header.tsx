@@ -20,8 +20,8 @@ const navigation = [
 export const Header: FC = () => {
   return (
     <>
-      <header>
-        <ul>
+      <header className={style.header}>
+        <ul className={style.navList}>
           {navigation.map((item, index) => (
             <li key={index}>
               <NavLink
