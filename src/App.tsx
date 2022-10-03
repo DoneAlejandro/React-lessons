@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { nanoid } from "nanoid";
+import React, { useState, useMemo } from "react";
 import { Provider } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -10,34 +11,28 @@ import { ToggleColorMode } from "./components/ToggleColorMode";
 import { store } from "./store";
 import { AUTHOR, Chat, Message, Messages } from "./types";
 
-const defaultChats: Chat[] = [
-  {
-    id: "1",
-    name: "чат 1",
-  },
-  {
-    id: "2",
-    name: "чат 2",
-  },
-];
-
-const defaultMessage: Messages = {
-  "1": [{ author: "Алексей", message: "Привет!", customers: AUTHOR.USER }],
-  "2": [{ author: "Петя", message: "Всем привет", customers: AUTHOR.USER }],
-};
-
 export function App() {
-  const [chats, setChats] = useState<Chat[]>(defaultChats);
-  const [messages, setMessages] = useState<Messages>(defaultMessage);
-
-  const addChat = (newChat: Chat) => {
-    setChats([...chats, newChat]);
-    setMessages({ ...messages, [newChat.id]: [] });
-  };
+  const [messages, setMessages] = useState<Messages>([]);
 
   const addMessage = (chatId: string, newMessage: Message) => {
     setMessages({ ...messages, [chatId]: [...messages[chatId], newMessage] });
   };
+
+  const deleteChat = (chatId: string) => {
+    const newMessage = { ...messages };
+    delete newMessage[chatId];
+    setMessages(newMessage);
+  };
+
+  const chats = useMemo(
+    () =>
+      Object.keys(messages).map((chatName) => ({
+        name: chatName,
+        id: nanoid(),
+      })),
+    [Object.keys(messages).length]
+  );
+
   return (
     <Provider store={store}>
       <Routes>
@@ -47,7 +42,13 @@ export function App() {
           <Route path="chats">
             <Route
               index
-              element={<ChatList chats={chats} addChat={addChat} />}
+              element={
+                <ChatList
+                  chats={chats}
+                  addChat={addChat}
+                  deleteChat={deleteChat}
+                />
+              }
             />
             <Route
               path=":chatId"
@@ -57,6 +58,7 @@ export function App() {
                   addChat={addChat}
                   messages={messages}
                   addMessage={addMessage}
+                  deleteChat={deleteChat}
                 />
               }
             />

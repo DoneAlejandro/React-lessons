@@ -38,12 +38,14 @@ describe("App", () => {
   it("addMessage function", () => {
     const addMessage = jest.fn();
     const addChat = jest.fn();
+    const deleteChat = jest.fn();
     render(
       <ChatPage
         chats={[]}
         addChat={addChat}
         messages={{}}
         addMessage={addMessage}
+        deleteChat={deleteChat}
       />
     );
   });
