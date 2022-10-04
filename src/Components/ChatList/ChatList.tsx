@@ -1,6 +1,5 @@
 import React, { FC, useState } from "react";
 import { ListItem } from "@mui/material";
-import { nanoid } from "nanoid";
 import style from "./ChatList.module.css";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
