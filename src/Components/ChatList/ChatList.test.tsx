@@ -12,13 +12,9 @@ describe("ChatList", () => {
     jest.resetAllMocks();
   });
   it("expect render chats", () => {
-    const addChat = jest.fn();
-    const deleteChat = jest.fn();
-    render(<ChatList chats={[]} addChat={addChat} deleteChat={deleteChat} />);
+    render(<ChatList />);
   });
   it("the chat list contains 3 chats", () => {
-    const addChat = jest.fn();
-    const deleteChat = jest.fn();
     const chats = [
       {
         id: "1",
@@ -35,7 +31,7 @@ describe("ChatList", () => {
     ];
     render(
       <BrowserRouter>
-        <ChatList chats={chats} addChat={addChat} deleteChat={deleteChat} />
+        <ChatList />
       </BrowserRouter>
     );
     expect(screen.getAllByTestId("list").length).toBe(3);
