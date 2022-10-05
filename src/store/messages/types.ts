@@ -1,7 +1,7 @@
 import { Message } from "src/types";
-import { ADD_CHAT, ADD_MESSAGE, DELETE_CHAT } from "./actions";
+import { ADD_CHAT, ADD_MESSAGE, DELETE_CHAT, DELETE_MESSAGE } from "./actions";
 
-export type MessageActions = AddChat | AddMessage | DeleteChat;
+export type MessageActions = AddChat | AddMessage | DeleteChat | DeleteMessage;
 
 export interface AddChat {
   type: typeof ADD_CHAT;
@@ -17,4 +17,10 @@ export interface AddMessage {
 export interface DeleteChat {
   type: typeof DELETE_CHAT;
   chatName: string;
+}
+
+export interface DeleteMessage {
+  type: typeof DELETE_MESSAGE;
+  chatName: string;
+  newMessage: Message;
 }

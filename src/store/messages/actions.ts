@@ -1,8 +1,9 @@
 import { Message } from "src/types";
-import { AddChat, AddMessage, DeleteChat } from "./types";
+import { AddChat, AddMessage, DeleteChat, DeleteMessage } from "./types";
 export const ADD_CHAT = "MESSAGES::ADD_CHAT";
 export const ADD_MESSAGE = "MESSAGES::ADD_MESSAGE";
 export const DELETE_CHAT = "MESSAGES::DELETE_CHAT";
+export const DELETE_MESSAGE = "MESSAGES::DELETE_MESSAGE";
 
 export const addChat = (chatName: string): AddChat => ({
   type: ADD_CHAT,
@@ -21,4 +22,13 @@ export const addMessage = (
 export const deleteChat = (chatName: string): DeleteChat => ({
   type: DELETE_CHAT,
   chatName,
+});
+
+export const deleteMessage = (
+  chatName: string,
+  newMessage: Message
+): DeleteMessage => ({
+  type: DELETE_MESSAGE,
+  chatName,
+  newMessage,
 });

@@ -1,4 +1,4 @@
-import { ADD_CHAT, ADD_MESSAGE, DELETE_CHAT } from "./actions";
+import { ADD_CHAT, ADD_MESSAGE, DELETE_CHAT, DELETE_MESSAGE } from "./actions";
 import { Reducer } from "redux";
 import { AUTHOR, Messages } from "src/types";
 import { MessageActions } from "./types";
@@ -29,6 +29,11 @@ export const messageReducer: Reducer<Messages, MessageActions> = (
       const messages = { ...state };
       delete messages[action.chatName];
       return messages;
+    }
+    case DELETE_MESSAGE: {
+      const stateMessage = { ...state };
+      delete stateMessage[action.newMessage.message];
+      return stateMessage;
     }
     default:
       return state;
