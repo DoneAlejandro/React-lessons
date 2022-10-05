@@ -2,19 +2,18 @@ import React, { FC, useCallback } from "react";
 import { useState } from "react";
 import style from "./FormMessage.module.css";
 import { TextField, Button } from "@mui/material";
-import { AUTHOR, Message } from "src/types";
+import { AUTHOR } from "src/types";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addMessage } from "src/store/messages/actions";
 
 // Функциональный компонент
 
-interface FormMessageProps {
-  addMessage: (chatId: string, msg: Message) => void;
-}
-
-export const FormMessage: FC<FormMessageProps> = ({ addMessage }) => {
+export const FormMessage: FC = () => {
   const [author, setAuthor] = useState("");
   const [text, setText] = useState("");
   const { chatId } = useParams();
+  const dispatch = useDispatch();
 
   const handlerSubmit = (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
@@ -24,7 +23,7 @@ export const FormMessage: FC<FormMessageProps> = ({ addMessage }) => {
       customers: AUTHOR.USER,
     };
     if (chatId) {
-      addMessage(chatId, messageItem);
+      dispatch(addMessage(chatId, messageItem));
       setAuthor("");
       setText("");
     }
